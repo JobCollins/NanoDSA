@@ -43,3 +43,33 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+area_codes = []
+
+def extract_area_code(record):
+    called_num = record[1]
+
+    if called_num.startswith('(0'):  # Fix land case
+        return called_num.split(sep=')')[0] + ')'
+
+    elif called_num.startswith('140'):  # Telemarketer case
+        return called_num[:3]
+
+    else:  # Mobile case
+        return called_num[:4]
+
+for record in calls:
+  if record[0].startswith('(080)'):
+    area_codes.append(extract_area_code(record))
+
+area_codes_uniq = list(set(area_codes))
+area_codes_uniq.sort()
+# print(area_codes_uniq)
+
+percentage_local = area_codes.count('(080)')/len(area_codes) * 100
+
+print("The numbers called by people in Bangalore have codes: \n")
+for i in area_codes_uniq:
+  print("{} \n".format(i))
+
+print("{:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage_local))

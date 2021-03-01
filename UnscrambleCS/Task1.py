@@ -11,11 +11,11 @@ with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
-def test(uniq):
-    symmetric_diff = set([list(line)[0] for line in texts]).symmetric_difference(set([list(line)[0] for line in calls]))
-    common_vals = set([list(line)[0] for line in texts]).intersection(set([list(line)[0] for line in calls]))
+# def test(uniq):
+#     symmetric_diff = set([list(line)[0] for line in texts]).symmetric_difference(set([list(line)[0] for line in calls]))
+#     common_vals = set([list(line)[0] for line in texts]).intersection(set([list(line)[0] for line in calls]))
 
-    assert len(symmetric_diff)+len(common_vals) == len(uniq)
+#     assert len(symmetric_diff)+len(common_vals) == len(uniq)
 
 
 """
@@ -27,4 +27,4 @@ Print a message:
 unique_numbers = set([list(line)[0] for line in texts]).union(set([list(line)[0] for line in calls]))
 print("There are {} different telephone numbers in the records.".format(len(unique_numbers)))
 
-test(unique_numbers)
+# test(unique_numbers)
