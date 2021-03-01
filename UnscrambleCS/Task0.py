@@ -4,10 +4,12 @@ It's ok if you don't understand how to read files.
 """
 import csv
 with open('texts.csv', 'r') as f:
+    first_text_record = f.readline()
     reader = csv.reader(f)
     texts = list(reader)
 
 with open('calls.csv', 'r') as f:
+    last_call_record = f.readlines()[-1]
     reader = csv.reader(f)
     calls = list(reader)
 
@@ -19,4 +21,6 @@ Print messages:
 "First record of texts, <incoming number> texts <answering number> at time <time>"
 "Last record of calls, <incoming number> calls <answering number> at time <time>, lasting <during> seconds"
 """
+print("First record of texts, {} texts {} at time {}".format(first_text_record.split(',')[0], first_text_record.split(',')[1], first_text_record.split(',')[2]))
+print("Last record of calls, {} calls {} at time {}, lasting {} seconds".format(last_call_record.split(',')[0], last_call_record.split(',')[1], last_call_record.split(',')[2], last_call_record.split(',')[3]))
 
