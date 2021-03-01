@@ -24,4 +24,11 @@ Print a message:
 <list of numbers>
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
+callers = set([record[0] for record in calls ])
+receivers = set([record[1] for record in calls])
 
+telemarketers = list(callers.difference(receivers))
+telemarketers.sort()
+
+print("These numbers could be telemarketers:\n")
+[print(i) for i in telemarketers]
