@@ -18,3 +18,5 @@ How many different telephone numbers are there in the records?
 Print a message:
 "There are <count> different telephone numbers in the records."
 """
+unique_numbers = set([list(line)[0] for line in texts]).union(set([list(line)[0] for line in calls]))
+print("There are {} different telephone numbers in the records.".format(len(unique_numbers)))
