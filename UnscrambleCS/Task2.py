@@ -19,4 +19,8 @@ Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
 """
+d={}
+for line in calls:
+    d[line[0]] = int(line[3])
 
+print("{} spent the longest time, {} seconds, on the phone during September 2016.".format(max(d, key=d.get), max(d.values())))
